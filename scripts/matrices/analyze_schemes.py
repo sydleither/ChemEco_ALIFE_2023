@@ -54,21 +54,6 @@ def boxplots(df, group):
         plt.close()
 
 
-def scatter(df, param): #TODO this should compare network+abiotic params against each other (x=param, y=score, colored by scheme)
-    figure, axis = plt.subplots(1, 5)
-
-    sc = axis.scatter(df[param], df[score], c=df[color], cmap=cmap)
-    cb = figure.colorbar(sc, ax=axis)
-    cb.set_label(color)
-    axis.set_ylim(ylim_min, ylim_max)
-    figure.suptitle(f'{matrix_scheme} {param} and {score}')
-    figure.supxlabel(param)
-    figure.supylabel(score)
-
-    plt.savefig(f'plots/{matrix_scheme}/{score}_{param}_scatter.png')
-    plt.close()
-
-
 def count_adaptive(df, group):
     df_count = df[[group]]
     df_count.insert(1, 'total', df.groupby(group)[group].transform('count'))
