@@ -1,28 +1,16 @@
 
 # Artificial Ecology for Chemical Ecology Project
 
+## How to replicate results from [Interaction Strengths Affect Whether Ecological Networks Promote the Initiation of Egalitarian Major Transitions](https://direct.mit.edu/isal/proceedings/isal/35/73/116913)
 
-[![version](https://img.shields.io/endpoint?url=https%3A%2F%2Femilydolson.github.io%2Fchemical-ecology%2Fversion-badge.json)](https://github.com/emilydolson/chemical-ecology/releases)
-[![](https://img.shields.io/travis/emilydolson/chemical-ecology.svg)](https://travis-ci.com/emilydolson/chemical-ecology)
-[![Documentation Status](https://readthedocs.org/projects/chemical-ecology/badge/?version=latest)](https://chemical-ecology.readthedocs.io/en/latest/?badge=latest)
-[![documentation coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Femilydolson.github.io%2Fchemical-ecology%2Fdocumentation-coverage-badge.json)](https://chemical-ecology.readthedocs.io/en/latest/)
-[![code coverage status](https://codecov.io/gh/emilydolson/chemical-ecology/branch/master/graph/badge.svg)](https://codecov.io/gh/emilydolson/chemical-ecology)
-[![dotos](https://img.shields.io/endpoint?url=https%3A%2F%2Femilydolson.com%2Fchemical-ecology%2Fdoto-badge.json)](https://github.com/emilydolson/chemical-ecology/search?q=todo+OR+fixme&type=)
-[![GitHub stars](https://img.shields.io/github/stars/emilydolson/chemical-ecology.svg?style=flat-square&logo=github&label=Stars&logoColor=white)](https://github.com/emilydolson/chemical-ecology)
-
-For playing with ideas about evolution and succession
-
-Check out the live in-browser web app at [https://emilydolson.github.io/chemical-ecology][].
-
-
--   Free software: MIT license
--   Documentation: <https://chemical-ecology.readthedocs.io>. 
-
-## Features
-
--   TODO
-
-![cookie monster example](docs/assets/cookie.gif)
+-   All relevant scripts are located in scripts/matrices
+-   To enumerate over a given matrix scheme and find the fitnesses associated with different parameters of that scheme, run "sbatch search_params.sb \[generation_scheme\]"
+    -   Options for generation schemes are klemm, klemm_random, motif, mangal, random
+    -   The sbatch script will need to be modified to point to where your code is stored.
+-   Once the data is generated, it can be analyzed using analyze_params.py and analyze_schemes.py
+    -   Data is read in using the helper file get_results.py, the file path in the get_data() function will need to be modified to point to where search_params.sh stored the data
+    -   Run each analysis script using "python3 analyze_schemes.py" or "python3 analyze_params.py \[generation_scheme\]"
+        -   Results from analyze_params.py were not included in the paper due to space restrictions.
 
 ## Credits
 
